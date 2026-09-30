@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\majek\\\\AppData\\\\Roaming\\\\npm\" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match \"claude\" } | Select-Object Name, FullName)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\majek\\\\AppData\\\\Local\\\\Programs\" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match \"claude|anthropic\" } | Select-Object FullName; Get-ChildItem \"C:\\\\Program Files\" -ErrorAction SilentlyContinue | Where-Object { $_.Name -match \"claude|anthropic\" } | Select-Object FullName)",
+      "PowerShell($bytes = [System.IO.File]::ReadAllBytes\\(\"C:\\\\Users\\\\majek\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\\\\@anthropic-ai\\\\claude-code\\\\bin\\\\claude.exe\"\\); [System.Text.Encoding]::ASCII.GetString\\($bytes[0..1]\\); $machineType = [System.BitConverter]::ToUInt16\\($bytes, 0x3C\\); \"PE offset: $\\([System.BitConverter]::ToInt32\\($bytes, 0x3C\\)\\)\"; $peOffset = [System.BitConverter]::ToInt32\\($bytes, 0x3C\\); $machine = [System.BitConverter]::ToUInt16\\($bytes, $peOffset + 4\\); \"Machine type: 0x{0:X4}\" -f $machine)",
+      "PowerShell(\\(Get-Item \"C:\\\\Users\\\\majek\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\\\\@anthropic-ai\\\\claude-code\\\\bin\\\\claude.exe\"\\).Length; $bytes = [System.IO.File]::ReadAllBytes\\(\"C:\\\\Users\\\\majek\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\\\\@anthropic-ai\\\\claude-code\\\\bin\\\\claude.exe\"\\); [System.Text.Encoding]::ASCII.GetString\\($bytes[0..3]\\))",
+      "PowerShell(npm i *)",
+      "PowerShell(npm *)",
+      "PowerShell(neon link *)",
+      "PowerShell(neon config *)",
+      "PowerShell(neon deploy *)",
+      "PowerShell(Get-Content \"C:\\\\Repos\\\\meal-tracker\\\\.env.local\" | ForEach-Object { if \\($_ -match \"^[^=]+=\"\\) { $key = \\($_ -split \"=\"\\)[0]; \"$key=[REDACTED]\" } else { $_ } })",
+      "PowerShell(neon auth *)",
+      "PowerShell(neon env *)",
+      "PowerShell(neon sql --query $sql 2>&1)",
+      "PowerShell(Rename-Item *)",
+      "PowerShell(Start-Sleep -Seconds 5; Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 10 2>&1 | Select-Object StatusCode, StatusDescription)",
+      "PowerShell(cd C:\\\\Repos\\\\meal-tracker; Start-Process -FilePath \"powershell\" -ArgumentList \"-Command\", \"npm run dev\" -WindowStyle Hidden; Start-Sleep -Seconds 8; Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 10 | Select-Object StatusCode, StatusDescription)"
+    ]
+  }
+}
