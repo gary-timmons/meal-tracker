@@ -16,7 +16,9 @@
       "PowerShell(neon sql --query $sql 2>&1)",
       "PowerShell(Rename-Item *)",
       "PowerShell(Start-Sleep -Seconds 5; Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 10 2>&1 | Select-Object StatusCode, StatusDescription)",
-      "PowerShell(cd C:\\\\Repos\\\\meal-tracker; Start-Process -FilePath \"powershell\" -ArgumentList \"-Command\", \"npm run dev\" -WindowStyle Hidden; Start-Sleep -Seconds 8; Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 10 | Select-Object StatusCode, StatusDescription)"
+      "PowerShell(cd C:\\\\Repos\\\\meal-tracker; Start-Process -FilePath \"powershell\" -ArgumentList \"-Command\", \"npm run dev\" -WindowStyle Hidden; Start-Sleep -Seconds 8; Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 10 | Select-Object StatusCode, StatusDescription)",
+      "PowerShell(\\(Get-Command gh -ErrorAction SilentlyContinue\\).Source)",
+      "PowerShell(winget install *)"
     ]
   }
 }
